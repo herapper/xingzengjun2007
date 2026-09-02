@@ -4,252 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>邢增俊｜摄影集</title>
-  <meta name="description" content="邢增俊的个人摄影作品集">
+  <title>邢增俊｜摄影作品集</title>
+  <meta
+    name="description"
+    content="邢增俊的个人摄影作品集，记录天空、高原、航空与航天。"
+  >
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #f5f5f5;
-      font-family: Arial, "Microsoft YaHei", sans-serif;
-    }
-
-    header {
-      width: min(1400px, calc(100% - 40px));
-      margin: auto;
-      padding: 28px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #333;
-    }
-
-    .logo {
-      font-size: 18px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-    }
-
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    main {
-      width: min(1400px, calc(100% - 40px));
-      margin: auto;
-    }
-
-    .intro {
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 60px 0;
-    }
-
-    .intro small {
-      color: #888;
-      letter-spacing: 3px;
-    }
-
-    h1 {
-      max-width: 900px;
-      margin: 18px 0;
-      font-size: clamp(42px, 8vw, 110px);
-      line-height: 1.05;
-    }
-
-    .intro p {
-      max-width: 600px;
-      color: #aaa;
-      font-size: 17px;
-      line-height: 1.8;
-    }
-
-    .gallery-title {
-      padding: 40px 0 20px;
-      border-top: 1px solid #333;
-    }
-
-    .gallery {
-      columns: 3;
-      column-gap: 16px;
-      padding-bottom: 100px;
-    }
-
-    figure {
-      margin: 0 0 22px;
-      break-inside: avoid;
-    }
-
-    figure a {
-      display: block;
-      overflow: hidden;
-    }
-
-    figure img {
-      display: block;
-      width: 100%;
-      transition: transform 0.4s, opacity 0.4s;
-    }
-
-    figure img:hover {
-      transform: scale(1.02);
-      opacity: 0.85;
-    }
-
-    figcaption {
-      padding-top: 8px;
-      color: #888;
-      font-size: 13px;
-    }
-
-    .about {
-      padding: 100px 0;
-      border-top: 1px solid #333;
-    }
-
-    .about h2 {
-      font-size: 36px;
-    }
-
-    .about p {
-      max-width: 700px;
-      color: #aaa;
-      font-size: 17px;
-      line-height: 1.9;
-    }
-
-    footer {
-      width: min(1400px, calc(100% - 40px));
-      margin: auto;
-      padding: 35px 0;
-      border-top: 1px solid #333;
-      color: #777;
-      font-size: 13px;
-    }
-
-    @media (max-width: 900px) {
-      .gallery {
-        columns: 2;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .gallery {
-        columns: 1;
-      }
-
-      .intro {
-        min-height: 55vh;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <div class="logo">邢增俊摄影集</div>
+  <header class="site-header">
+    <a class="brand" href="index.html">邢增俊摄影集</a>
 
     <nav>
-      <a href="#works">作品</a>
+      <a href="#series">系列作品</a>
       <a href="#about">关于</a>
     </nav>
   </header>
 
   <main>
-    <section class="intro">
-      <small>PHOTOGRAPHY PORTFOLIO</small>
-      <h1>记录光线、空间与偶然发生的瞬间。</h1>
-      <p>
-        欢迎来到我的个人摄影集。这里收录了我在旅行、城市和日常生活中拍摄的作品。
-      </p>
-    </section>
+    <!-- 首页全屏封面 -->
+    <section
+      class="hero"
+      style="background-image: url('images/photo-01.jpg');"
+    >
+      <div class="hero-content">
+        <p class="eyebrow">XING ZENGJUN · PHOTOGRAPHY</p>
 
-    <section id="works">
-      <h2 class="gallery-title">摄影作品</h2>
+        <h1>邢增俊</h1>
 
-      <div class="gallery">
-        <figure>
-          <a href="images/photo-01.jpg" target="_blank">
-            <img src="images/photo-01.jpg" alt="摄影作品一">
-          </a>
-         <figcaption>沧溟沉云 · 海南海口 · 2024</figcaption>
-        </figure>
-
-        <figure>
-          <a href="images/photo-02.jpg" target="_blank">
-            <img src="images/photo-02.jpg" alt="摄影作品二" loading="lazy">
-          </a>
-         <figcaption>暮焰望穹 · 海南文昌 · 2026</figcaption>
-        </figure>
-
-        <figure>
-          <a href="images/photo-03.jpg" target="_blank">
-            <img src="images/photo-03.jpg" alt="摄影作品三" loading="lazy">
-          </a>
-         <figcaption>朝霞遇箭 · 海南文昌 · 2025</figcaption>
-        </figure>
-
-        <figure>
-          <a href="images/photo-04.jpg" target="_blank">
-            <img src="images/photo-04.jpg" alt="摄影作品四" loading="lazy">
-          </a>
-        <figcaption>云下风语 · 西藏那曲 · 2026</figcaption>
-        </figure>
-
-        <figure>
-          <a href="images/photo-05.jpg" target="_blank">
-            <img src="images/photo-05.jpg" alt="摄影作品五" loading="lazy">
-          </a>
-          <figcaption>星落旧垣 · 海南文昌 · 2026</figcaption>
-        </figure>
-
-        <figure>
-          <a href="images/photo-06.jpg" target="_blank">
-            <img src="images/photo-06.jpg" alt="摄影作品六" loading="lazy">
-          </a>
-        <figcaption>南迦暮时 · 西藏林芝 · 2026</figcaption>
-        </figure>
+        <p class="hero-description">
+          记录天空、远方，以及人与自然相遇的瞬间。
+        </p>
       </div>
     </section>
 
-    <section id="about" class="about">
-      <h2>关于我</h2>
-      <p>
-        我是邢增俊，一名摄影爱好者。我用照片记录生活中容易被忽略的光线、人物和空间。
-        这里展示的是我的部分摄影作品，网站也会随着新的拍摄持续更新。
-      </p>
+    <!-- 系列作品 -->
+    <section id="series" class="series-section">
+      <div class="section-heading">
+        <p>SELECTED SERIES</p>
+        <h2>系列作品</h2>
+      </div>
+
+      <div class="series-grid">
+        <!-- 海南天际 -->
+        <a class="series-card" href="hainan.html">
+          <img
+            src="images/photo-01.jpg"
+            alt="海南天际系列封面"
+          >
+
+          <div class="series-card-content">
+            <small>HAINAN SKYSCAPE · 2024—2026</small>
+            <h3>海南天际</h3>
+            <p>关于海岸、云层与航天景观的长期记录 · 2张作品</p>
+          </div>
+        </a>
+
+        <!-- 西藏之旅 -->
+        <a class="series-card" href="xizang.html">
+          <img
+            src="images/photo-06.jpg"
+            alt="西藏之旅系列封面"
+            loading="lazy"
+          >
+
+          <div class="series-card-content">
+            <small>JOURNEY TO XIZANG · 2026</small>
+            <h3>西藏之旅</h3>
+            <p>第一次进入西藏的所见所闻 · 2张作品</p>
+          </div>
+        </a>
+
+        <!-- 航空与航天 -->
+        <a class="series-card" href="aerospace.html">
+          <img
+            src="images/photo-02.jpg"
+            alt="航空与航天系列封面"
+            loading="lazy"
+          >
+
+          <div class="series-card-content">
+            <small>AVIATION AND AEROSPACE · 2023—2026</small>
+            <h3>航空与航天</h3>
+            <p>记录我所见的飞机、飞行活动与航天发射 · 2张作品</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="series-section">
+      <div class="section-heading">
+        <p>ABOUT THE PHOTOGRAPHER</p>
+        <h2>关于我</h2>
+      </div>
+
+      <div class="series-introduction">
+        <p>
+          我是邢增俊，一名摄影爱好者。
+          我的拍摄关注自然风景、旅途见闻、航空与航天，
+          并尝试通过影像记录光线、空间与时间的变化。
+        </p>
+
+        <p>
+          这个网站收录了我近年来创作的部分摄影作品，
+          并将随着新的拍摄计划持续更新。
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
-    © 2026 邢增俊 · All photographs are copyrighted.
+    © 2026 邢增俊 · 本站作品版权归摄影师本人所有
   </footer>
 </body>
 </html>
