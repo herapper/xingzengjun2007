@@ -107,7 +107,14 @@ a {
   line-height: 1;
   letter-spacing: -0.04em;
 }
-
+.hero-alias {
+  margin: 4px 0 18px;
+  color: var(--gold);
+  font-size: clamp(30px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
 .hero-description {
   max-width: 650px;
   color: #ccc;
