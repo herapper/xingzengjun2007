@@ -3,73 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>邢增俊｜摄影作品集</title>
-  <meta
-    name="description"
-    content="邢增俊的个人摄影作品集，记录天空、高原、航空与航天。"
-  >
-
+  <meta name="description" content="邢增俊的个人摄影作品集，记录天空、高原、城市、航空与航天。">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">邢增俊摄影集</a>
+    <a class="brand" href="index.html" aria-label="返回首页">
+      <span class="brand-name">邢增俊</span>
+      <span class="brand-alias">HERAPPER</span>
+    </a>
 
-    <nav>
+    <nav aria-label="主要导航">
       <a href="#series">系列作品</a>
       <a href="#about">关于</a>
     </nav>
   </header>
 
   <main>
-    <!-- 首页全屏封面 -->
     <section
       class="hero"
       style="background-image: url('images/photo-01.jpg');"
+      aria-label="邢增俊摄影作品集封面"
     >
       <div class="hero-content">
         <p class="eyebrow">XING ZENGJUN · PHOTOGRAPHY</p>
-
-     <h1>邢增俊</h1>
-
-<p class="hero-alias">HERAPPER</p>
-
-<p class="hero-description">
-  记录天空、远方，以及人与自然相遇的瞬间。
-</p>
+        <h1>邢增俊</h1>
+        <p class="hero-alias">HERAPPER</p>
+        <p class="hero-description">
+          记录天空、远方，以及人与自然相遇的瞬间。
+        </p>
       </div>
+
+      <a class="scroll-cue" href="#series" aria-label="向下查看系列作品">
+        <span>SCROLL TO EXPLORE</span>
+        <i aria-hidden="true">↓</i>
+      </a>
     </section>
 
-    <!-- 系列作品 -->
     <section id="series" class="series-section">
       <div class="section-heading">
-        <p>SELECTED SERIES</p>
-        <h2>系列作品</h2>
+        <div>
+          <p>SELECTED SERIES · 2023—2026</p>
+          <h2>系列作品</h2>
+        </div>
+        <p class="section-note">
+          从海岸、高原、城市到飞行器，四组持续进行的影像记录。
+        </p>
       </div>
 
-      <a class="series-card" href="hainan.html">
-  <img
-    src="images/hainan/hainan-skyscape-001.jpg"
-    alt="海南天际系列封面"
-    loading="lazy"
-  >
-
-  <div class="series-card-content">
-    <small>HAINAN SKYSCAPE · 2024—2026</small>
-    <h3>海南天际</h3>
-    <p>关于海岸、云层与航天景观的长期记录 · 25张作品</p>
-  </div>
-</a>
-        <!-- 西藏之旅 -->
-        <a class="series-card" href="xizang.html">
+      <div class="series-grid">
+        <a class="series-card" href="hainan.html" data-index="01">
           <img
-            src="images/photo-06.jpg"
-            alt="西藏之旅系列封面"
+            src="images/hainan/hainan-skyscape-001.jpg"
+            alt="海南天际系列封面"
             loading="lazy"
           >
 
+          <div class="series-card-content">
+            <small>HAINAN SKYSCAPE · 2024—2026</small>
+            <h3>海南天际</h3>
+            <p>海岸、云层与航天景观的长期记录 · 25张作品</p>
+          </div>
+        </a>
+
+        <a class="series-card" href="xizang.html" data-index="02">
+          <img src="images/photo-06.jpg" alt="西藏之旅系列封面" loading="lazy">
           <div class="series-card-content">
             <small>JOURNEY TO XIZANG · 2026</small>
             <h3>西藏之旅</h3>
@@ -77,60 +77,59 @@
           </div>
         </a>
 
-        <!-- 航空与航天 -->
-        <a class="series-card" href="aerospace.html">
+        <a class="series-card" href="aerospace.html" data-index="03">
           <img
             src="images/aerospace/aviation-aerospace-001.jpg"
             alt="航空与航天系列封面"
             loading="lazy"
           >
-
           <div class="series-card-content">
             <small>AVIATION AND AEROSPACE · 2023—2026</small>
             <h3>航空与航天</h3>
-            <p>记录我所见的飞机、飞行活动与航天发射 · 11张作品</p>
+            <p>飞机、飞行活动与航天发射 · 11张作品</p>
           </div>
         </a>
-      <a class="series-card" href="urban.html">
-  <img
-    src="images/urban/urban-fragments-001.jpg"
-    alt="城市切片系列封面"
-    loading="lazy"
-  >
 
-  <div class="series-card-content">
-    <small>URBAN FRAGMENTS</small>
-    <h3>城市切片</h3>
-    <p>关于城市结构、光影与日常秩序的观察 · 7张作品</p>
-  </div>
-</a>
+        <a class="series-card" href="urban.html" data-index="04">
+          <img
+            src="images/urban/urban-fragments-001.jpg"
+            alt="城市切片系列封面"
+            loading="lazy"
+          >
+          <div class="series-card-content">
+            <small>URBAN FRAGMENTS</small>
+            <h3>城市切片</h3>
+            <p>城市结构、光影与日常秩序 · 7张作品</p>
+          </div>
+        </a>
       </div>
     </section>
 
-    <!-- 关于我 -->
-    <section id="about" class="series-section">
-      <div class="section-heading">
+    <section id="about" class="about-section">
+      <div class="about-label">
         <p>ABOUT THE PHOTOGRAPHER</p>
-        <h2>关于我</h2>
+        <span>关于我</span>
       </div>
 
-      <div class="series-introduction">
-        <p>
-          我是邢增俊，一名摄影爱好者。
-          我的拍摄关注自然风景、旅途见闻、航空与航天，
-          并尝试通过影像记录光线、空间与时间的变化。
-        </p>
-
-        <p>
-          这个网站收录了我近年来创作的部分摄影作品，
-          并将随着新的拍摄计划持续更新。
-        </p>
+      <div class="about-content">
+        <h2>用影像保存短暂的<br>光线与空间。</h2>
+        <div class="about-copy">
+          <p>
+            我是邢增俊，一名摄影爱好者。我的拍摄关注自然风景、
+            旅途见闻、城市空间、航空与航天。
+          </p>
+          <p>
+            这个网站收录了我近年来创作的部分摄影作品，
+            并将随着新的拍摄计划持续更新。
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2026 邢增俊 · 本站作品版权归摄影师本人所有
+    <span>© 2026 邢增俊 · HERAPPER</span>
+    <span>PHOTOGRAPHY PORTFOLIO</span>
   </footer>
 </body>
 </html>
