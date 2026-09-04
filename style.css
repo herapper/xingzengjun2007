@@ -275,6 +275,7 @@ a:focus-visible {
 
 .series-card {
   position: relative;
+  display: block;
   grid-column: span 7;
   height: clamp(450px, 64vh, 700px);
   overflow: hidden;
