@@ -3,133 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>邢增俊｜摄影作品集</title>
-  <meta name="description" content="邢增俊的个人摄影作品集，记录天空、高原、城市、航空与航天。">
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#0a0b0c">
+  <title>邢增俊 · HERAPPER｜摄影作品集</title>
+  <meta name="description" content="邢增俊的个人摄影作品集：海南天际、西藏之旅、航空与航天、城市切片。">
+  <link rel="stylesheet" href="style.css?v=20260905">
+  <script src="site.js?v=20260905" defer></script>
 </head>
-
-<body>
+<body id="top" class="home-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="返回首页">
-      <span class="brand-name">邢增俊</span>
-      <span class="brand-alias">HERAPPER</span>
-    </a>
-
-    <nav aria-label="主要导航">
-      <a href="#series">系列作品</a>
-      <a href="#about">关于</a>
-    </nav>
-  </header>
-
-  <main>
-    <section
-      class="hero"
-      style="background-image: url('images/photo-01.jpg');"
-      aria-label="邢增俊摄影作品集封面"
-    >
-      <div class="hero-content">
-        <p class="eyebrow">XING ZENGJUN · PHOTOGRAPHY</p>
-        <h1>邢增俊</h1>
-        <p class="hero-alias">HERAPPER</p>
-        <p class="hero-description">
-          记录天空、远方，以及人与自然相遇的瞬间。
-        </p>
-      </div>
-
-      <a class="scroll-cue" href="#series" aria-label="向下查看系列作品">
-        <span>SCROLL TO EXPLORE</span>
-        <i aria-hidden="true">↓</i>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="邢增俊 HERAPPER · 首页">
+        <span class="brand-name">邢增俊</span>
+        <span class="brand-alias" lang="en">HERAPPER</span>
       </a>
+      <nav class="primary-nav" aria-label="主要导航">
+        <a href="#series">系列作品</a>
+        <a href="#about">关于</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="home-title">
+      <img class="hero-media" src="images/photo-01.jpg" width="2000" height="1333" alt="" fetchpriority="high" decoding="async">
+      <div class="hero-content shell">
+        <p class="eyebrow" lang="en">XING ZENGJUN / PHOTOGRAPHY</p>
+        <h1 id="home-title">邢增俊</h1>
+        <p class="hero-alias" lang="en">HERAPPER</p>
+        <p class="hero-description">记录天空、远方，<br>以及人与自然相遇的瞬间。</p>
+        <a class="hero-explore" href="#series">浏览系列作品 <span aria-hidden="true">↓</span></a>
+      </div>
     </section>
 
-    <section id="series" class="series-section">
+    <section id="series" class="series-section shell" aria-labelledby="series-title">
       <div class="section-heading">
-        <div>
-          <p>SELECTED SERIES · 2023—2026</p>
-          <h2>系列作品</h2>
-        </div>
-        <p class="section-note">
-          从海岸、高原、城市到飞行器，四组持续进行的影像记录。
-        </p>
+        <div><p class="eyebrow" lang="en">SELECTED SERIES</p><h2 id="series-title">系列作品</h2></div>
+        <p class="section-note">四组关于天空、远方与日常的影像记录。</p>
       </div>
-
       <div class="series-grid">
-        <a class="series-card" href="hainan.html" data-index="01">
-          <img
-            src="images/hainan/hainan-skyscape-001.jpg"
-            alt="海南天际系列封面"
-            loading="lazy"
-          >
-
+        <!-- 海南天际：修改图片路径、文字和作品数量即可更新本卡片 -->
+        <a class="series-card" href="hainan.html" aria-labelledby="series-hainan">
+          <div class="series-card-top"><span class="series-number">01</span><span class="series-date">2024—2026</span></div>
+          <div class="series-card-image">
+            <img src="images/hainan/hainan-skyscape-001.jpg" width="2560" height="1721" alt="海南天际系列封面" loading="lazy" decoding="async">
+          </div>
           <div class="series-card-content">
-            <small>HAINAN SKYSCAPE · 2024—2026</small>
-            <h3>海南天际</h3>
-            <p>海岸、云层与航天景观的长期记录 · 25张作品</p>
+            <p class="series-english" lang="en">Hainan Skyscape</p>
+            <div class="series-title-row"><h3 id="series-hainan">海南天际</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <p class="series-description">关于海岸、云层与航天景观的长期记录</p>
+            <span class="series-count">25 张作品</span>
           </div>
         </a>
 
-        <a class="series-card" href="xizang.html" data-index="02">
-          <img src="images/photo-06.jpg" alt="西藏之旅系列封面" loading="lazy">
+        <!-- 西藏之旅：修改图片路径、文字和作品数量即可更新本卡片 -->
+        <a class="series-card" href="xizang.html" aria-labelledby="series-xizang">
+          <div class="series-card-top"><span class="series-number">02</span><span class="series-date">2026</span></div>
+          <div class="series-card-image">
+            <img src="images/photo-06.jpg" width="2000" height="2999" alt="西藏之旅系列封面" loading="lazy" decoding="async">
+          </div>
           <div class="series-card-content">
-            <small>JOURNEY TO XIZANG · 2026</small>
-            <h3>西藏之旅</h3>
-            <p>第一次进入西藏的所见所闻 · 2张作品</p>
+            <p class="series-english" lang="en">Journey to Xizang</p>
+            <div class="series-title-row"><h3 id="series-xizang">西藏之旅</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <p class="series-description">首次进藏的所见所闻</p>
+            <span class="series-count">02 张作品</span>
           </div>
         </a>
 
-        <a class="series-card" href="aerospace.html" data-index="03">
-          <img
-            src="images/aerospace/aviation-aerospace-001.jpg"
-            alt="航空与航天系列封面"
-            loading="lazy"
-          >
+        <!-- 航空与航天：修改图片路径、文字和作品数量即可更新本卡片 -->
+        <a class="series-card" href="aerospace.html" aria-labelledby="series-aerospace">
+          <div class="series-card-top"><span class="series-number">03</span><span class="series-date">2023—2026</span></div>
+          <div class="series-card-image">
+            <img src="images/aerospace/aviation-aerospace-001.jpg" width="2000" height="1333" alt="航空与航天系列封面" loading="lazy" decoding="async">
+          </div>
           <div class="series-card-content">
-            <small>AVIATION AND AEROSPACE · 2023—2026</small>
-            <h3>航空与航天</h3>
-            <p>飞机、飞行活动与航天发射 · 11张作品</p>
+            <p class="series-english" lang="en">Aviation and Aerospace</p>
+            <div class="series-title-row"><h3 id="series-aerospace">航空与航天</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <p class="series-description">我拍下的飞机与火箭</p>
+            <span class="series-count">11 张作品</span>
           </div>
         </a>
 
-        <a class="series-card" href="urban.html" data-index="04">
-          <img
-            src="images/urban/urban-fragments-001.jpg"
-            alt="城市切片系列封面"
-            loading="lazy"
-          >
+        <!-- 城市切片：修改图片路径、文字和作品数量即可更新本卡片 -->
+        <a class="series-card" href="urban.html" aria-labelledby="series-urban">
+          <div class="series-card-top"><span class="series-number">04</span><span class="series-date"></span></div>
+          <div class="series-card-image">
+            <img src="images/urban/urban-fragments-001.jpg" width="2000" height="1125" alt="城市切片系列封面" loading="lazy" decoding="async">
+          </div>
           <div class="series-card-content">
-            <small>URBAN FRAGMENTS</small>
-            <h3>城市切片</h3>
-            <p>城市结构、光影与日常秩序 · 7张作品</p>
+            <p class="series-english" lang="en">Urban Fragments</p>
+            <div class="series-title-row"><h3 id="series-urban">城市切片</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <p class="series-description">关于城市结构、光影与日常秩序的观察</p>
+            <span class="series-count">07 张作品</span>
           </div>
         </a>
       </div>
     </section>
 
-    <section id="about" class="about-section">
-      <div class="about-label">
-        <p>ABOUT THE PHOTOGRAPHER</p>
-        <span>关于我</span>
-      </div>
-
+    <section id="about" class="about-section shell" aria-labelledby="about-title">
+      <div class="about-label"><p class="eyebrow" lang="en">ABOUT</p><h2 id="about-title">关于我</h2></div>
       <div class="about-content">
-        <h2>用影像保存短暂的<br>光线与空间。</h2>
+        <p class="about-statement">用影像保存短暂的<br>光线与空间。</p>
         <div class="about-copy">
-          <p>
-            我是邢增俊，一名摄影爱好者。我的拍摄关注自然风景、
-            旅途见闻、城市空间、航空与航天。
-          </p>
-          <p>
-            这个网站收录了我近年来创作的部分摄影作品，
-            并将随着新的拍摄计划持续更新。
-          </p>
+          <p>我是邢增俊，一名摄影爱好者。我的拍摄关注自然风景、旅途见闻、城市空间、航空与航天。</p>
+          <p>这里收录了我近年来创作的部分摄影作品，并将随着新的拍摄计划持续更新。</p>
         </div>
       </div>
     </section>
   </main>
-
-  <footer>
-    <span>© 2026 邢增俊 · HERAPPER</span>
-    <span>PHOTOGRAPHY PORTFOLIO</span>
+  <footer class="site-footer shell">
+    <div><p>© 2026 邢增俊 · HERAPPER</p><p class="copyright-note">本站摄影作品版权归摄影师本人所有</p></div>
+    <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
   </footer>
 </body>
 </html>
