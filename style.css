@@ -87,6 +87,29 @@ h1, h2, h3, p { margin: 0; }
 .about-label h2 { margin-top: .5rem; font-size: 1.125rem; font-weight: 400; }
 .about-statement { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.75rem); line-height: 1.5; letter-spacing: .015em; }
 .about-copy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 2.5rem; color: var(--muted); }
+.text-link { display: inline-flex; gap: 1.5rem; align-items: center; min-height: 2.75rem; margin-top: 2rem; padding-bottom: .25rem; border-bottom: 1px solid var(--line); font-size: .875rem; }
+.text-link:hover { color: var(--gold); border-color: var(--gold); }
+
+/* 独立的摄影师介绍页 */
+.profile-hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.35fr); align-items: end; gap: clamp(2rem, 7vw, 8rem); min-height: 100vh; min-height: 100svh; padding-top: 11rem; padding-bottom: clamp(4rem, 8vw, 8rem); }
+.profile-heading h1 { margin-top: 1rem; font-family: var(--serif); font-size: clamp(4rem, 8vw, 8rem); font-weight: 500; line-height: 1.12; letter-spacing: .02em; }
+.profile-lead { max-width: 32rem; margin-top: 2rem; color: #d0cec9; font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 2; }
+.profile-portrait { margin: 0; }
+.profile-portrait img { width: 100%; height: auto; background: var(--surface); }
+.profile-portrait figcaption { margin-top: .75rem; color: var(--muted); font-size: .75rem; letter-spacing: .08em; }
+.profile-body, .contact-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr); gap: clamp(2rem, 6vw, 6rem); padding-block: clamp(4rem, 8vw, 8rem); border-top: 1px solid var(--line); }
+.profile-label h2, .contact-section h2 { margin-top: .5rem; font-size: 1.125rem; font-weight: 400; }
+.profile-copy { max-width: 54rem; font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2.5rem); line-height: 1.75; }
+.profile-copy p + p { margin-top: 2rem; color: #c3c1bc; font-family: var(--sans); font-size: 1rem; line-height: 2; }
+.contact-intro { max-width: 48rem; color: #cbc9c4; font-size: 1.0625rem; }
+.contact-list { display: grid; margin-top: 2.5rem; border-top: 1px solid var(--line); }
+.contact-link { display: grid; grid-template-columns: minmax(6rem, .35fr) minmax(0, 1fr) auto; align-items: center; gap: 1rem; min-height: 4.75rem; border-bottom: 1px solid var(--line); }
+.contact-type { color: var(--muted); font-size: .875rem; letter-spacing: .1em; }
+.contact-value { overflow-wrap: anywhere; }
+.contact-arrow { color: var(--gold); font-size: 1.25rem; }
+a.contact-link:hover { color: var(--gold); }
+.contact-wechat .contact-value { user-select: all; }
+.primary-nav a[aria-current="page"] { color: var(--gold); border-color: var(--gold); }
 
 /* 系列详情：一张封面，简短介绍，完整照片。 */
 .page-hero { min-height: 78vh; min-height: 78svh; }
@@ -149,7 +172,8 @@ html.viewer-open { overflow: hidden; }
   .series-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem 1.5rem; }
   .series-card, .series-card:nth-child(4n + 2), .series-card:nth-child(4n + 3) { grid-column: auto; }
   .series-card:nth-child(4n + 2), .series-card:nth-child(4n + 4) { margin-top: 3rem; }
-  .about-section, .series-introduction { grid-template-columns: 1fr; }
+  .about-section, .series-introduction, .profile-body, .contact-section { grid-template-columns: 1fr; }
+  .profile-hero { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
 @media (max-width: 40rem) {
   html { scroll-padding-top: 7rem; }
@@ -172,6 +196,10 @@ html.viewer-open { overflow: hidden; }
   .series-description { margin-top: .4rem; }
   .about-copy { grid-template-columns: 1fr; gap: 1rem; }
   .about-statement br { display: none; }
+  .profile-hero { grid-template-columns: 1fr; align-items: start; min-height: auto; padding-top: 9rem; }
+  .profile-heading h1 { font-size: clamp(3.5rem, 18vw, 5.5rem); }
+  .profile-portrait { margin-top: 1rem; }
+  .contact-link { grid-template-columns: 5rem minmax(0, 1fr) auto; }
   .page-hero { min-height: 78vh; min-height: 78svh; }
   .page-hero-content { padding-top: 10rem; padding-bottom: 3rem; }
   .page-hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
