@@ -8,6 +8,8 @@
   <meta name="description" content="邢增俊的个人摄影作品集：海南天际、西藏之旅、航空与航天、城市切片。">
   <link rel="stylesheet" href="style.css?v=20260905b">
   <script src="site.js?v=20260905" defer></script>
+  <link rel="stylesheet" href="slideshow.css?v=20260918">
+  <script src="slideshow.js?v=20260918" defer></script>
 </head>
 <body id="top" class="home-page">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -24,14 +26,24 @@
     </div>
   </header>
   <main id="main" tabindex="-1">
-    <section class="hero" aria-labelledby="home-title">
+    <section class="hero" data-slideshow aria-labelledby="home-title">
       <img class="hero-media" src="images/photo-01.jpg" width="2000" height="1333" alt="" fetchpriority="high" decoding="async">
+      <img class="hero-media slide-extra" data-src="images/hainan/hainan-skyscape-001.jpg" alt="" decoding="async">
+      <img class="hero-media slide-extra" data-src="images/photo-04.jpg" alt="" decoding="async">
+      <img class="hero-media slide-extra" data-src="images/aerospace/aviation-aerospace-001.jpg" alt="" decoding="async">
+      <img class="hero-media slide-extra" data-src="images/urban/urban-fragments-001.jpg" alt="" decoding="async">
       <div class="hero-content shell">
         <p class="eyebrow" lang="en">XING ZENGJUN / PHOTOGRAPHY</p>
         <h1 id="home-title">邢增俊</h1>
         <p class="hero-alias" lang="en">HERAPPER</p>
         <p class="hero-description">记录天空、远方，<br>以及人与自然相遇的瞬间。</p>
         <a class="hero-explore" href="#series">浏览系列作品 <span aria-hidden="true">↓</span></a>
+        <div class="slideshow-controls" hidden role="group" aria-label="首页照片轮播">
+          <button type="button" data-slide-prev aria-label="上一张照片">←</button>
+          <span class="slideshow-count" aria-live="off">01 / 05</span>
+          <button type="button" data-slide-next aria-label="下一张照片">→</button>
+          <button type="button" data-slide-toggle>暂停轮播</button>
+        </div>
       </div>
     </section>
 

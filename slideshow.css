@@ -1,0 +1,11 @@
+/* 首页轮播：仅改变背景照片，标题保持稳定。 */
+[data-slideshow] > .hero-media { opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+[data-slideshow] > .hero-media:first-child { opacity: 1; }
+[data-slideshow].slideshow-ready > .hero-media { opacity: 0; }
+[data-slideshow].slideshow-ready > .hero-media.is-active { opacity: 1; }
+.slideshow-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1.5rem; }
+.slideshow-controls[hidden] { display: none; }
+.slideshow-controls button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: .4rem .8rem; border: 1px solid #ffffff45; background: #0a0b0c70; color: #f2f1ed; font-size: .875rem; }
+.slideshow-controls button:hover { border-color: var(--gold); color: var(--gold); }
+.slideshow-count { min-width: 5rem; text-align: center; color: #eee; font-size: .875rem; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { [data-slideshow] > .hero-media { transition: none; } }
