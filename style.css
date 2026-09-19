@@ -260,3 +260,8 @@ html.viewer-open { overflow: hidden; }
   filter: blur(0);
   transform: scale(1);
 }
+
+/* ===== 拍摄足迹地图 ===== */
+.footsteps-section { padding: 4rem 0; }
+.china-map { width: 100%; height: 480px; }
+@media (max-width: 768px) { .china-map { height: 360px; } }

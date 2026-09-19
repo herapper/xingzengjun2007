@@ -8,6 +8,7 @@
   <meta name="description" content="邢增俊的个人摄影作品集：海南天际、西藏之旅、航空与航天、城市切片。">
   <link rel="stylesheet" href="style.css?v=20260919a">
   <script src="site.js?v=20260919a" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
   <link rel="stylesheet" href="slideshow.css?v=20260919a">
   <script src="slideshow.js?v=20260918" defer></script>
 </head>
@@ -125,6 +126,14 @@
       </div>
     </section>
 
+    <section id="footsteps" class="footsteps-section shell" aria-labelledby="footsteps-title">
+      <div class="section-heading">
+        <div><p class="eyebrow" lang="en">FOOTSTEPS</p><h2 id="footsteps-title">拍摄足迹</h2></div>
+        <p class="section-note">这些年走过的拍摄地点，点击查看对应照片。</p>
+      </div>
+      <div id="china-map" class="china-map"></div>
+    </section>
+
     <section id="about" class="about-section shell" aria-labelledby="about-title">
       <div class="about-label"><p class="eyebrow" lang="en">ABOUT</p><h2 id="about-title">关于我</h2></div>
       <div class="about-content">
@@ -141,6 +150,111 @@
     <div><p>© 2026 邢增俊 · HERAPPER</p><p class="copyright-note">本站摄影作品版权归摄影师本人所有</p></div>
     <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
   </footer>
+<script>
+// 拍摄足迹地图
+(function() {
+  const chartDom = document.getElementById('china-map');
+  if (!chartDom || typeof echarts === 'undefined') return;
+
+  const chart = echarts.init(chartDom, 'dark');
+
+  // 拍摄地点数据：[经度, 纬度, 地点名, 照片数, 链接]
+  const points = [
+    [110.35, 20.02, '海口 · 美兰', 52, 'aerospace.html#airport-HAK'],
+    [109.51, 18.25, '三亚 · 凤凰', 64, 'aerospace.html#airport-SYX'],
+    [110.8, 19.6, '文昌 · 航天发射场', 1, 'aerospace.html#airport-Wenchang-Space-Launch-Site'],
+    [117.12, 36.65, '济南 · 遥墙', 37, 'aerospace.html#airport-TNA'],
+    [116.40, 39.90, '北京', 17, 'aerospace.html#airport-PEK'],
+    [121.47, 31.23, '上海 · 浦东', 29, 'aerospace.html#airport-PVG'],
+    [113.27, 23.13, '广州 · 白云', 5, 'aerospace.html#airport-CAN'],
+    [114.06, 22.55, '深圳 · 宝安', 1, 'aerospace.html#airport-SZX'],
+    [104.07, 30.57, '成都 · 双流', 7, 'aerospace.html#airport-CTU'],
+    [125.32, 43.82, '长春 · 龙嘉', 1, 'aerospace.html#airport-CGQ'],
+    [108.94, 34.34, '西安 · 咸阳', 3, 'aerospace.html#airport-XIY'],
+    [113.62, 34.75, '郑州 · 新郑', 10, 'aerospace.html#airport-CGO'],
+    [91.14, 29.65, '拉萨 · 贡嘎', 11, 'aerospace.html#airport-LXA'],
+    [114.17, 22.32, '香港', 24, 'aerospace.html#airport-HKG']
+  ];
+
+  fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
+    .then(res => res.json())
+    .then(geoJson => {
+      echarts.registerMap('china', geoJson);
+
+      const option = {
+        backgroundColor: 'transparent',
+        tooltip: {
+          trigger: 'item',
+          backgroundColor: '#1a1b1c',
+          borderColor: '#ffffff20',
+          textStyle: { color: '#f2f1ed' },
+          formatter: function(p) {
+            if (p.seriesType === 'effectScatter') {
+              return `<b>${p.data[2]}</b><br/>${p.data[3]} 张作品`;
+            }
+            return p.name;
+          }
+        },
+        geo: {
+          map: 'china',
+          roam: true,
+          zoom: 1.15,
+          label: { show: false },
+          itemStyle: {
+            areaColor: '#161718',
+            borderColor: '#ffffff15',
+            borderWidth: 1
+          },
+          emphasis: {
+            itemStyle: { areaColor: '#1e1f20' },
+            label: { show: false }
+          }
+        },
+        series: [{
+          name: '拍摄地点',
+          type: 'effectScatter',
+          coordinateSystem: 'geo',
+          data: points.map(p => ({
+            value: [p[0], p[1], p[2], p[3]],
+            link: p[4]
+          })),
+          symbolSize: function(val) {
+            return Math.max(8, Math.min(20, 6 + val[3] / 5));
+          },
+          rippleEffect: { brushType: 'stroke', scale: 2.5 },
+          itemStyle: {
+            color: '#c9a96e',
+            shadowBlur: 10,
+            shadowColor: '#c9a96e'
+          },
+          label: {
+            show: true,
+            position: 'right',
+            formatter: function(p) { return p.data.value[2]; },
+            color: '#eee',
+            fontSize: 11
+          },
+          emphasis: {
+            itemStyle: { color: '#e6c98a' }
+          }
+        }]
+      };
+
+      chart.setOption(option);
+
+      // 点击跳转
+      chart.on('click', function(params) {
+        if (params.data && params.data.link) {
+          window.location.href = params.data.link;
+        }
+      });
+    });
+
+  // 自适应窗口大小
+  window.addEventListener('resize', () => chart.resize());
+})();
+</script>
 </body>
 </html>
+
 
