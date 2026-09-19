@@ -16,172 +16,137 @@
       }
     }, { passive: true });
   }
-
-  const links = Array.from(document.querySelectorAll(".gallery .photo-link"))
+const links = Array.from(document.querySelectorAll(".gallery .photo-link"))
     .filter((link) => link.querySelector("img"));
-  if (!links.length || typeof HTMLDialogElement === "undefined" ||
-      typeof HTMLDialogElement.prototype.showModal !== "function") return;
+  if (!links.length) return;
 
-  const viewer = document.createElement("dialog");
-  viewer.className = "lightbox";
-  viewer.setAttribute("aria-labelledby", "viewer-title");
+  // ===== 全屏照片查看器 =====
+  const viewer = document.createElement("div");
+  viewer.className = "photo-viewer";
+  viewer.setAttribute("role", "dialog");
+  viewer.setAttribute("aria-modal", "true");
   viewer.innerHTML = `
     <div class="viewer-top">
-      <p class="viewer-title" id="viewer-title"></p>
-      <p class="viewer-status" role="status"></p>
-      <button class="viewer-close" type="button" aria-label="关闭大图" autofocus>关闭 <span aria-hidden="true">×</span></button>
+      <span class="viewer-counter">01 / 01</span>
+      <div class="viewer-actions">
+        <button class="viewer-btn" data-action="fullscreen" aria-label="全屏">⛶</button>
+        <button class="viewer-btn" data-action="download" aria-label="下载">⤓</button>
+        <button class="viewer-btn" data-action="close" aria-label="关闭">×</button>
+      </div>
     </div>
+    <button class="viewer-arrow viewer-prev" aria-label="上一张">←</button>
     <div class="viewer-stage">
       <img class="viewer-image" alt="" draggable="false">
     </div>
-    <div class="viewer-bottom">
-      <button class="viewer-prev" type="button" aria-label="上一张照片">←</button>
-      <p class="viewer-count" aria-live="polite" aria-atomic="true"></p>
-      <button class="viewer-next" type="button" aria-label="下一张照片">→</button>
-      <a class="viewer-original" target="_blank" rel="noopener">打开原图 <span aria-hidden="true">↗</span></a>
-    </div>`;
+    <button class="viewer-arrow viewer-next" aria-label="下一张">→</button>
+    <div class="viewer-thumbs">
+      <div class="thumbs-track"></div>
+    </div>
+  `;
   document.body.append(viewer);
-  document.querySelector(".gallery").classList.add("gallery-enhanced");
 
-  const photo = viewer.querySelector(".viewer-image");
-  const title = viewer.querySelector(".viewer-title");
-  const status = viewer.querySelector(".viewer-status");
-  const counter = viewer.querySelector(".viewer-count");
-  const previous = viewer.querySelector(".viewer-prev");
-  const next = viewer.querySelector(".viewer-next");
-  const close = viewer.querySelector(".viewer-close");
-  const original = viewer.querySelector(".viewer-original");
-  const stage = viewer.querySelector(".viewer-stage");
-  title.textContent = document.querySelector("#page-title")?.textContent || "摄影作品";
+  const img = viewer.querySelector(".viewer-image");
+  const counter = viewer.querySelector(".viewer-counter");
+  const prevBtn = viewer.querySelector(".viewer-prev");
+  const nextBtn = viewer.querySelector(".viewer-next");
+  const closeBtn = viewer.querySelector('[data-action="close"]');
+  const fullscreenBtn = viewer.querySelector('[data-action="fullscreen"]');
+  const downloadBtn = viewer.querySelector('[data-action="download"]');
+  const thumbsTrack = viewer.querySelector(".thumbs-track");
+
+  // 生成缩略图条
+  links.forEach((link, i) => {
+    const thumb = document.createElement("div");
+    thumb.className = "thumb-item";
+    thumb.innerHTML = `<img src="${link.querySelector("img").src}" alt="" loading="lazy">`;
+    thumb.addEventListener("click", () => showPhoto(i));
+    thumbsTrack.append(thumb);
+  });
+  const thumbs = Array.from(thumbsTrack.children);
+
   let index = 0;
   let returnFocus = null;
-  let touchStart = null;
-  let savedScroll = 0;
 
-  photo.addEventListener("load", () => {
-    photo.classList.remove("is-loading", "has-error");
-    status.textContent = "";
-  });
-  photo.addEventListener("error", () => {
-    photo.classList.remove("is-loading");
-    photo.classList.add("has-error");
-    status.textContent = "照片暂时无法加载，可点击“打开原图”。";
-  });
+  const showPhoto = (i) => {
+    if (i < 0) i = links.length - 1;
+    if (i >= links.length) i = 0;
+    index = i;
+    img.src = links[i].href;
+    img.alt = links[i].querySelector("img").alt;
+    counter.textContent = `${String(i + 1).padStart(2, "0")} / ${String(links.length).padStart(2, "0")}`;
 
-  const showPhoto = (position) => {
-    if (position < 0 || position >= links.length) return;
-    index = position;
-    const source = links[index].querySelector("img");
-    photo.classList.remove("has-error");
-    photo.classList.add("is-loading");
-    status.textContent = "正在加载…";
-    photo.alt = source.alt;
-    photo.src = links[index].href;
-    original.href = links[index].href;
-    counter.textContent = String(index + 1).padStart(2, "0") + " / " + String(links.length).padStart(2, "0");
-    previous.disabled = index === 0;
-    next.disabled = index === links.length - 1;
-    if (photo.complete && photo.naturalWidth > 0) {
-      photo.classList.remove("is-loading");
-      status.textContent = "";
-    }
+    // 高亮当前缩略图
+    thumbs.forEach((t, ti) => t.classList.toggle("is-active", ti === i));
+    thumbs[i].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   };
 
-  links.forEach((link, position) => {
-    link.addEventListener("click", (event) => {
-      if (event.button !== 0 || event.ctrlKey || event.metaKey ||
-          event.shiftKey || event.altKey || event.defaultPrevented) return;
-      returnFocus = link;
-      savedScroll = window.scrollY;
-      showPhoto(position);
-      viewer.showModal();
-      document.documentElement.classList.add("viewer-open");
-      event.preventDefault();
+  const openViewer = (i) => {
+    returnFocus = document.activeElement;
+    showPhoto(i);
+    viewer.classList.add("is-open");
+    document.body.classList.add("viewer-open");
+  };
+
+  const closeViewer = () => {
+    viewer.classList.remove("is-open");
+    document.body.classList.remove("viewer-open");
+    if (returnFocus?.isConnected) returnFocus.focus();
+  };
+
+  // 绑定事件
+  links.forEach((link, i) => {
+    link.addEventListener("click", (e) => {
+      if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.defaultPrevented) return;
+      e.preventDefault();
+      openViewer(i);
     });
   });
 
-  close.addEventListener("click", () => viewer.close());
-  previous.addEventListener("click", () => showPhoto(index - 1));
-  next.addEventListener("click", () => showPhoto(index + 1));
-  viewer.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      showPhoto(index - 1);
-    } else if (event.key === "ArrowRight") {
-      event.preventDefault();
-      showPhoto(index + 1);
-    }
-    // Escape 和 Tab 焦点限制交由原生 dialog 处理。
-  });
-  viewer.addEventListener("close", () => {
-    document.documentElement.classList.remove("viewer-open");
-    touchStart = null;
-    pointers.clear();
-    if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
-    if (Math.abs(window.scrollY - savedScroll) > 2) {
-      const root = document.documentElement;
-      const previousBehavior = root.style.scrollBehavior;
-      root.style.scrollBehavior = "auto";
-      window.scrollTo(0, savedScroll);
-      root.style.scrollBehavior = previousBehavior;
+  prevBtn.addEventListener("click", () => showPhoto(index - 1));
+  nextBtn.addEventListener("click", () => showPhoto(index + 1));
+  closeBtn.addEventListener("click", closeViewer);
+
+  fullscreenBtn.addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+      viewer.requestFullscreen?.();
+    } else {
+      document.exitFullscreen?.();
     }
   });
 
-  // 仅把明确的单指横划识别为换图，保留浏览器纵向滚动和双指缩放。
-  const pointers = new Set();
-  stage.addEventListener("pointerdown", (event) => {
-    if (event.pointerType !== "touch") return;
-    stage.setPointerCapture(event.pointerId);
-    pointers.add(event.pointerId);
-    touchStart = pointers.size === 1
-      ? { id: event.pointerId, x: event.clientX, y: event.clientY }
-      : null;
+  downloadBtn.addEventListener("click", () => {
+    const a = document.createElement("a");
+    a.href = links[index].href;
+    a.download = "";
+    a.target = "_blank";
+    a.click();
+  });
+
+  // 点击背景关闭
+  viewer.querySelector(".viewer-stage").addEventListener("click", (e) => {
+    if (e.target === img) return;
+    closeViewer();
+  });
+
+  // 键盘快捷键
+  document.addEventListener("keydown", (e) => {
+    if (!viewer.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeViewer();
+    if (e.key === "ArrowLeft") showPhoto(index - 1);
+    if (e.key === "ArrowRight") showPhoto(index + 1);
+    if (e.key.toLowerCase() === "f") fullscreenBtn.click();
+    if (e.key.toLowerCase() === "d") downloadBtn.click();
+  });
+
+  // 触摸滑动
+  let touchStartX = 0;
+  viewer.querySelector(".viewer-stage").addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
   }, { passive: true });
-  stage.addEventListener("pointerup", (event) => {
-    pointers.delete(event.pointerId);
-    const start = touchStart;
-    touchStart = null;
-    if (!start || event.pointerId !== start.id) return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
-    if (Math.abs(dx) >= 64 && Math.abs(dx) > Math.abs(dy) * 1.8) {
+
+  viewer.querySelector(".viewer-stage").addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
       showPhoto(index + (dx < 0 ? 1 : -1));
     }
   }, { passive: true });
-  stage.addEventListener("pointercancel", (event) => {
-    pointers.delete(event.pointerId);
-    touchStart = null;
-  }, { passive: true });
-})();
-
-// ===== 滚动入场动画 =====
-if ("IntersectionObserver" in window) {
-  const motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
-  if (motionOk) {
-    const animatedSelector = ".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .page-hero-content, .series-introduction, .series-navigation";
-    const targets = document.querySelectorAll(animatedSelector);
-    if (targets.length) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-      targets.forEach((el) => observer.observe(el));
-    }
-  } else {
-    // 用户开启了减少动态效果，直接全部显示
-    document.querySelectorAll(".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .page-hero-content, .series-introduction, .series-navigation").forEach((el) => el.classList.add("is-visible"));
-  }
-}
-
-// ===== 图片加载完成后移除模糊效果 =====
-document.querySelectorAll('.gallery-item img, .series-card-image img, .hero-media').forEach((img) => {
-  if (img.complete && img.naturalWidth > 0) {
-    img.classList.add('is-loaded');
-  } else {
-    img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
-  }
-});
