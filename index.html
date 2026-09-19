@@ -8,7 +8,7 @@
   <meta name="description" content="邢增俊的个人摄影作品集：海南天际、西藏之旅、航空与航天、城市切片。">
   <link rel="stylesheet" href="style.css?v=20260919a">
   <script src="site.js?v=20260919a" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="echarts.min.js"></script>
   <link rel="stylesheet" href="slideshow.css?v=20260919a">
   <script src="slideshow.js?v=20260918" defer></script>
 </head>
@@ -176,7 +176,7 @@
     [114.17, 22.32, '香港', 24, 'aerospace.html#airport-HKG']
   ];
 
-  fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
+  fetch('china.json')
     .then(res => res.json())
     .then(geoJson => {
       echarts.registerMap('china', geoJson);
