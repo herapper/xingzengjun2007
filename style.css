@@ -216,28 +216,7 @@ html.viewer-open { overflow: hidden; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 
-/* ===== 滚动入场动画 ===== */
-@media (prefers-reduced-motion: no-preference) {
-  .series-card,
-  .about-content,
-  .section-heading,
-  .gallery-heading,
-  .airport-index,
-  .page-hero-content,
-  .series-introduction,
-  .series-navigation {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
-  }
-  .is-visible {
-    opacity: 1;
-    transform: none;
-  }
-  .series-card:nth-child(2) { transition-delay: .08s; }
-  .series-card:nth-child(3) { transition-delay: .16s; }
-  .series-card:nth-child(4) { transition-delay: .24s; }
-}
+/* ===== 图片加载模糊过渡
 
 /* ===== 图片加载模糊过渡效果 ===== */
 .gallery-item,

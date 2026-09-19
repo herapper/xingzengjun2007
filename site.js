@@ -150,24 +150,3 @@ const links = Array.from(document.querySelectorAll(".gallery .photo-link"))
       showPhoto(index + (dx < 0 ? 1 : -1));
     }
   }, { passive: true });
-
-// ===== 滚动入场动画 =====
-if ("IntersectionObserver" in window) {
-  const motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
-  if (motionOk) {
-    const animatedSelector = ".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .series-introduction, .series-navigation, .china-map";
-    const targets = document.querySelectorAll(animatedSelector);
-    if (targets.length) {
-      targets.forEach((el) => el.classList.add("animate-hidden"));
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-      targets.forEach((el) => observer.observe(el));
-    }
-  }
-}
