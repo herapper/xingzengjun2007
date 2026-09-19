@@ -71,5 +71,56 @@
     <div><p>© 2026 邢增俊 · HERAPPER</p><p class="copyright-note">本站摄影作品版权归摄影师本人所有</p></div>
     <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
   </footer>
+<script>
+(function() {
+  const indexNav = document.querySelector('.airport-index');
+  const sections = Array.from(document.querySelectorAll('.gallery-section'));
+  if (!indexNav || !sections.length) return;
+
+  const links = Array.from(indexNav.querySelectorAll('a'));
+
+  function showSection(id, push) {
+    if (!id) return;
+    if (id.charAt(0) === '#') id = id.slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    sections.forEach(s => s.classList.remove('is-active'));
+    target.classList.add('is-active');
+
+    links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + id));
+
+    const top = target.offsetTop - 72;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+
+    if (push) history.pushState(null, '', '#' + id);
+  }
+
+  function init() {
+    const hash = location.hash.slice(1);
+    if (hash && document.getElementById(hash)) {
+      showSection(hash, false);
+    } else {
+      showSection(sections[0].id, false);
+      history.replaceState(null, '', '#' + sections[0].id);
+    }
+  }
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      showSection(this.getAttribute('href').slice(1), true);
+    });
+  });
+
+  window.addEventListener('popstate', function() {
+    const hash = location.hash.slice(1);
+    if (hash && document.getElementById(hash)) showSection(hash, false);
+  });
+
+  init();
+})();
+</script>
 </body>
 </html>
+

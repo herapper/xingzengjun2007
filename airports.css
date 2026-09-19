@@ -1,5 +1,9 @@
-.airport-index { display:flex; flex-wrap:wrap; gap:.65rem; padding-bottom:3rem; }
+﻿.airport-index { display:flex; flex-wrap:wrap; gap:.65rem; padding-bottom:3rem; }
 .airport-index a { display:inline-flex; align-items:center; gap:.65rem; min-height:44px; padding:.5rem .85rem; border:1px solid var(--line); font-size:.875rem; }
 .airport-index a:hover { border-color:var(--gold); color:var(--gold); }
+.airport-index a.is-active { border-color:var(--gold); color:var(--gold); }
 .airport-index span { color:var(--muted); font-variant-numeric:tabular-nums; }
 .series-aerospace .gallery-heading h2 { font-size:1.25rem; }
+.gallery-section { display:none; }
+.gallery-section.is-active { display:block; }
+
