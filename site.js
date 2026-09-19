@@ -176,3 +176,12 @@ if ("IntersectionObserver" in window) {
     document.querySelectorAll(".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .page-hero-content, .series-introduction, .series-navigation").forEach((el) => el.classList.add("is-visible"));
   }
 }
+
+// ===== 图片加载完成后移除模糊效果 =====
+document.querySelectorAll('.gallery-item img, .series-card-image img, .hero-media').forEach((img) => {
+  if (img.complete && img.naturalWidth > 0) {
+    img.classList.add('is-loaded');
+  } else {
+    img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
+  }
+});
