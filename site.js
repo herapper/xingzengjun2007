@@ -153,3 +153,26 @@
     touchStart = null;
   }, { passive: true });
 })();
+
+// ===== 滚动入场动画 =====
+if ("IntersectionObserver" in window) {
+  const motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+  if (motionOk) {
+    const animatedSelector = ".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .page-hero-content, .series-introduction, .series-navigation";
+    const targets = document.querySelectorAll(animatedSelector);
+    if (targets.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+      targets.forEach((el) => observer.observe(el));
+    }
+  } else {
+    // 用户开启了减少动态效果，直接全部显示
+    document.querySelectorAll(".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .page-hero-content, .series-introduction, .series-navigation").forEach((el) => el.classList.add("is-visible"));
+  }
+}
