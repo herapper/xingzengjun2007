@@ -155,9 +155,10 @@ const links = Array.from(document.querySelectorAll(".gallery .photo-link"))
 if ("IntersectionObserver" in window) {
   const motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
   if (motionOk) {
-    const animatedSelector = ".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .page-hero-content, .series-introduction, .series-navigation, .china-map";
+    const animatedSelector = ".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .series-introduction, .series-navigation, .china-map";
     const targets = document.querySelectorAll(animatedSelector);
     if (targets.length) {
+      targets.forEach((el) => el.classList.add("animate-hidden"));
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -168,7 +169,5 @@ if ("IntersectionObserver" in window) {
       }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
       targets.forEach((el) => observer.observe(el));
     }
-  } else {
-    document.querySelectorAll(".series-card, .about-content, .section-heading, .gallery-heading, .airport-index, .page-hero-content, .series-introduction, .series-navigation, .china-map").forEach((el) => el.classList.add("is-visible"));
   }
 }
