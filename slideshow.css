@@ -47,3 +47,38 @@
 .slideshow-controls [data-slide-toggle] { display: none; }
 
 @media (prefers-reduced-motion: reduce) { [data-slideshow] > .hero-media { transition: none; } }
+/* 手机端轮播按钮 */
+@media (max-width: 640px) {
+  [data-slideshow] .slideshow-controls {
+    top: auto;
+    left: auto;
+    right: 18px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    transform: none;
+    width: auto;
+    padding: 0;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  [data-slideshow] .slideshow-controls button {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(15, 17, 19, 0.32);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  [data-slideshow] .slideshow-controls button:active {
+    transform: scale(0.94);
+    background: rgba(199, 164, 109, 0.25);
+  }
+}
