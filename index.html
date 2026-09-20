@@ -6,11 +6,15 @@
   <meta name="theme-color" content="#0a0b0c">
   <title>邢增俊 · HERAPPER｜摄影作品集</title>
   <meta name="description" content="邢增俊的个人摄影作品集：海南天际、西藏之旅、航空与航天、城市切片。">
-  <link rel="stylesheet" href="style.css?v=20260919a">
-  <script src="site.js?v=20260919a" defer></script>
-  <script src="echarts.min.js"></script>
-  <link rel="stylesheet" href="slideshow.css?v=20260919a">
-  <script src="slideshow.js?v=20260918" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=1c06b77a39">
+  <link rel="stylesheet" href="assets/css/photo-loading.css?v=534d9d5b93">
+  <link rel="stylesheet" href="assets/css/map.css?v=824355a5ec">
+  <link rel="stylesheet" href="assets/css/slideshow.css?v=ce28ef36f6">
+  <script src="assets/js/navigation.js?v=d80bde859c" defer></script>
+  <script src="assets/js/photo-loading.js?v=b7b765913b" defer></script>
+  <script src="assets/js/viewer.js?v=52367a1cbc" defer></script>
+  <script src="assets/js/slideshow.js?v=55c922ea11" defer></script>
+  <script src="assets/js/map.js?v=de834f00f7" defer></script>
 </head>
 <body id="top" class="home-page">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -28,17 +32,18 @@
   </header>
   <main id="main" tabindex="-1">
     <section class="hero" data-slideshow aria-labelledby="home-title">
-      <img class="hero-media" src="images/photo-01.jpg" width="2000" height="1333" alt="" fetchpriority="high" decoding="async">
-      <img class="hero-media slide-extra" data-src="images/hainan/hainan-skyscape-001.jpg" alt="" decoding="async">
-      <img class="hero-media slide-extra" data-src="images/photo-04.jpg" alt="" decoding="async">
-      <img class="hero-media slide-extra" data-src="images/aerospace/wenchang-space-launch-site-2026-02-11-001.jpg" alt="" decoding="async">
-      <img class="hero-media slide-extra" data-src="images/urban/urban-fragments-001.jpg" alt="" decoding="async">
+      <img class="hero-media" src="assets/images/images/photo-01/480.webp" width="2000" height="1333" alt="" fetchpriority="high" decoding="async" data-original="images/photo-01.jpg" data-viewer="assets/images/images/photo-01/1920.webp" data-thumb="assets/images/images/photo-01/480.webp" srcset="assets/images/images/photo-01/480.webp 480w, assets/images/images/photo-01/1280.webp 1280w, assets/images/images/photo-01/1920.webp 1920w" sizes="100vw">
+      <img class="hero-media slide-extra" data-src="assets/images/images/hainan/hainan-skyscape-001/480.webp" alt="" decoding="async" data-original="images/hainan/hainan-skyscape-001.jpg" data-viewer="assets/images/images/hainan/hainan-skyscape-001/1920.webp" data-thumb="assets/images/images/hainan/hainan-skyscape-001/480.webp" width="2560" height="1721" data-srcset="assets/images/images/hainan/hainan-skyscape-001/480.webp 480w, assets/images/images/hainan/hainan-skyscape-001/1280.webp 1280w, assets/images/images/hainan/hainan-skyscape-001/1920.webp 1920w" sizes="100vw">
+      <img class="hero-media slide-extra" data-src="assets/images/images/photo-04/480.webp" alt="" decoding="async" data-original="images/photo-04.jpg" data-viewer="assets/images/images/photo-04/1920.webp" data-thumb="assets/images/images/photo-04/480.webp" width="2000" height="1125" data-srcset="assets/images/images/photo-04/480.webp 480w, assets/images/images/photo-04/1280.webp 1280w, assets/images/images/photo-04/1920.webp 1920w" sizes="100vw">
+      <img class="hero-media slide-extra" data-src="assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/480.webp" alt="" decoding="async" data-original="images/aerospace/wenchang-space-launch-site-2026-02-11-001.jpg" data-viewer="assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/1920.webp" data-thumb="assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/480.webp" width="2000" height="1333" data-srcset="assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/480.webp 480w, assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/1280.webp 1280w, assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/1920.webp 1920w" sizes="100vw">
+      <img class="hero-media slide-extra" data-src="assets/images/images/urban/urban-fragments-001/480.webp" alt="" decoding="async" data-original="images/urban/urban-fragments-001.jpg" data-viewer="assets/images/images/urban/urban-fragments-001/1920.webp" data-thumb="assets/images/images/urban/urban-fragments-001/480.webp" width="2000" height="1125" data-srcset="assets/images/images/urban/urban-fragments-001/480.webp 480w, assets/images/images/urban/urban-fragments-001/1280.webp 1280w, assets/images/images/urban/urban-fragments-001/1920.webp 1920w" sizes="100vw">
       <div class="hero-content shell">
         <p class="eyebrow" lang="en">XING ZENGJUN / PHOTOGRAPHY</p>
         <h1 id="home-title">邢增俊</h1>
         <p class="hero-alias" lang="en">HERAPPER</p>
         <p class="hero-description">记录天空、远方，<br>以及人与自然相遇的瞬间。</p>
-        <a class="hero-explore" href="#series">浏览系列作品 <span aria-hidden="true">↓</span></a>
+        <a class="hero-explore" href="#series">浏览系列作品 <span aria-hidden="true">↓</span>
+</a>
         <div class="slideshow-controls" hidden role="group" aria-label="首页照片轮播">
           <button type="button" data-slide-prev aria-label="上一张照片">←</button>
           <span class="slideshow-count" aria-live="off">01 / 05</span>
@@ -50,19 +55,22 @@
 
     <section id="series" class="series-section shell" aria-labelledby="series-title">
       <div class="section-heading">
-        <div><p class="eyebrow" lang="en">SELECTED SERIES</p><h2 id="series-title">系列作品</h2></div>
+        <div><p class="eyebrow" lang="en">SELECTED SERIES</p><h2 id="series-title">系列作品</h2>
+</div>
         <p class="section-note">五组关于天空、远方与日常的影像记录。</p>
       </div>
       <div class="series-grid">
         <!-- 海南天际：修改图片路径、文字和作品数量即可更新本卡片 -->
         <a class="series-card" href="hainan.html" aria-labelledby="series-hainan">
-          <div class="series-card-top"><span class="series-number">01</span><span class="series-date">2024—2026</span></div>
+          <div class="series-card-top"><span class="series-number">01</span><span class="series-date">2024—2026</span>
+</div>
           <div class="series-card-image">
-            <img src="images/hainan/hainan-skyscape-001.jpg" width="2560" height="1721" alt="海南天际系列封面" loading="lazy" decoding="async">
+            <img src="assets/images/images/hainan/hainan-skyscape-001/480.webp" width="2560" height="1721" alt="海南天际系列封面" loading="lazy" decoding="async" data-original="images/hainan/hainan-skyscape-001.jpg" data-viewer="assets/images/images/hainan/hainan-skyscape-001/1920.webp" data-thumb="assets/images/images/hainan/hainan-skyscape-001/480.webp" srcset="assets/images/images/hainan/hainan-skyscape-001/480.webp 480w, assets/images/images/hainan/hainan-skyscape-001/1280.webp 1280w, assets/images/images/hainan/hainan-skyscape-001/1920.webp 1920w" sizes="(max-width: 640px) 100vw, 50vw">
           </div>
           <div class="series-card-content">
             <p class="series-english" lang="en">Hainan Skyscape</p>
-            <div class="series-title-row"><h3 id="series-hainan">海南天际</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <div class="series-title-row"><h3 id="series-hainan">海南天际</h3><span class="series-arrow" aria-hidden="true">↗</span>
+</div>
             <p class="series-description">关于海岸、云层与航天景观的长期记录</p>
             <span class="series-count">25 张作品</span>
           </div>
@@ -70,13 +78,15 @@
 
         <!-- 西藏之旅：修改图片路径、文字和作品数量即可更新本卡片 -->
         <a class="series-card" href="xizang.html" aria-labelledby="series-xizang">
-          <div class="series-card-top"><span class="series-number">02</span><span class="series-date">2026</span></div>
+          <div class="series-card-top"><span class="series-number">02</span><span class="series-date">2026</span>
+</div>
           <div class="series-card-image">
-            <img src="images/photo-06.jpg" width="2000" height="2999" alt="西藏之旅系列封面" loading="lazy" decoding="async">
+            <img src="assets/images/images/photo-06/480.webp" width="2000" height="2999" alt="西藏之旅系列封面" loading="lazy" decoding="async" data-original="images/photo-06.jpg" data-viewer="assets/images/images/photo-06/1920.webp" data-thumb="assets/images/images/photo-06/480.webp" srcset="assets/images/images/photo-06/480.webp 480w, assets/images/images/photo-06/1280.webp 1280w, assets/images/images/photo-06/1920.webp 1920w" sizes="(max-width: 640px) 100vw, 50vw">
           </div>
           <div class="series-card-content">
             <p class="series-english" lang="en">Journey to Xizang</p>
-            <div class="series-title-row"><h3 id="series-xizang">西藏之旅</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <div class="series-title-row"><h3 id="series-xizang">西藏之旅</h3><span class="series-arrow" aria-hidden="true">↗</span>
+</div>
             <p class="series-description">首次进藏的所见所闻</p>
             <span class="series-count">02 张作品</span>
           </div>
@@ -84,13 +94,15 @@
 
         <!-- 航空与航天：修改图片路径、文字和作品数量即可更新本卡片 -->
         <a class="series-card" href="aerospace.html" aria-labelledby="series-aerospace">
-          <div class="series-card-top"><span class="series-number">03</span><span class="series-date">2022—2026</span></div>
+          <div class="series-card-top"><span class="series-number">03</span><span class="series-date">2022—2026</span>
+</div>
           <div class="series-card-image">
-            <img src="images/aerospace/wenchang-space-launch-site-2026-02-11-001.jpg" width="2000" height="1333" alt="航空与航天系列封面" loading="lazy" decoding="async">
+            <img src="assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/480.webp" width="2000" height="1333" alt="航空与航天系列封面" loading="lazy" decoding="async" data-original="images/aerospace/wenchang-space-launch-site-2026-02-11-001.jpg" data-viewer="assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/1920.webp" data-thumb="assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/480.webp" srcset="assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/480.webp 480w, assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/1280.webp 1280w, assets/images/images/aerospace/wenchang-space-launch-site-2026-02-11-001/1920.webp 1920w" sizes="(max-width: 640px) 100vw, 50vw">
           </div>
           <div class="series-card-content">
             <p class="series-english" lang="en">Aviation and Aerospace</p>
-            <div class="series-title-row"><h3 id="series-aerospace">航空与航天</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <div class="series-title-row"><h3 id="series-aerospace">航空与航天</h3><span class="series-arrow" aria-hidden="true">↗</span>
+</div>
             <p class="series-description">我拍下的飞机与火箭</p>
             <span class="series-count">267 张作品</span>
           </div>
@@ -98,13 +110,15 @@
 
         <!-- 城市切片：修改图片路径、文字和作品数量即可更新本卡片 -->
         <a class="series-card" href="urban.html" aria-labelledby="series-urban">
-          <div class="series-card-top"><span class="series-number">04</span><span class="series-date"></span></div>
+          <div class="series-card-top"><span class="series-number">04</span><span class="series-date"></span>
+</div>
           <div class="series-card-image">
-            <img src="images/urban/urban-fragments-001.jpg" width="2000" height="1125" alt="城市切片系列封面" loading="lazy" decoding="async">
+            <img src="assets/images/images/urban/urban-fragments-001/480.webp" width="2000" height="1125" alt="城市切片系列封面" loading="lazy" decoding="async" data-original="images/urban/urban-fragments-001.jpg" data-viewer="assets/images/images/urban/urban-fragments-001/1920.webp" data-thumb="assets/images/images/urban/urban-fragments-001/480.webp" srcset="assets/images/images/urban/urban-fragments-001/480.webp 480w, assets/images/images/urban/urban-fragments-001/1280.webp 1280w, assets/images/images/urban/urban-fragments-001/1920.webp 1920w" sizes="(max-width: 640px) 100vw, 50vw">
           </div>
           <div class="series-card-content">
             <p class="series-english" lang="en">Urban Fragments</p>
-            <div class="series-title-row"><h3 id="series-urban">城市切片</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <div class="series-title-row"><h3 id="series-urban">城市切片</h3><span class="series-arrow" aria-hidden="true">↗</span>
+</div>
             <p class="series-description">关于城市结构、光影与日常秩序的观察</p>
             <span class="series-count">07 张作品</span>
           </div>
@@ -112,13 +126,15 @@
 
         <!-- 视频静帧：修改图片路径、文字和作品数量即可更新本卡片 -->
         <a class="series-card" href="video.html" aria-labelledby="series-video">
-          <div class="series-card-top"><span class="series-number">05</span><span class="series-date">2024—2026</span></div>
+          <div class="series-card-top"><span class="series-number">05</span><span class="series-date">2024—2026</span>
+</div>
           <div class="series-card-image">
-            <img src="images/video/Untitled_1.1.1.jpg" width="1280" height="853" alt="视频静帧系列封面" loading="lazy" decoding="async">
+            <img src="assets/images/images/video/Untitled_1.1.1/480.webp" width="3840" height="2160" alt="视频静帧系列封面" loading="lazy" decoding="async" data-original="images/video/Untitled_1.1.1.jpg" data-viewer="assets/images/images/video/Untitled_1.1.1/1920.webp" data-thumb="assets/images/images/video/Untitled_1.1.1/480.webp" srcset="assets/images/images/video/Untitled_1.1.1/480.webp 480w, assets/images/images/video/Untitled_1.1.1/1280.webp 1280w, assets/images/images/video/Untitled_1.1.1/1920.webp 1920w" sizes="(max-width: 640px) 100vw, 50vw">
           </div>
           <div class="series-card-content">
             <p class="series-english" lang="en">Video Stills</p>
-            <div class="series-title-row"><h3 id="series-video">视频静帧</h3><span class="series-arrow" aria-hidden="true">↗</span></div>
+            <div class="series-title-row"><h3 id="series-video">视频静帧</h3><span class="series-arrow" aria-hidden="true">↗</span>
+</div>
             <p class="series-description">从视频中截取的静止画面</p>
             <span class="series-count">14 张作品</span>
           </div>
@@ -128,133 +144,33 @@
 
     <section id="footsteps" class="footsteps-section shell" aria-labelledby="footsteps-title">
       <div class="section-heading">
-        <div><p class="eyebrow" lang="en">FOOTSTEPS</p><h2 id="footsteps-title">拍摄足迹</h2></div>
+        <div><p class="eyebrow" lang="en">FOOTSTEPS</p><h2 id="footsteps-title">拍摄足迹</h2>
+</div>
         <p class="section-note">这些年走过的拍摄地点，点击查看对应照片。</p>
       </div>
-      <div id="china-map" class="china-map"></div>
+      <div id="china-map" class="china-map">
+</div>
     </section>
 
     <section id="about" class="about-section shell" aria-labelledby="about-title">
-      <div class="about-label"><p class="eyebrow" lang="en">ABOUT</p><h2 id="about-title">关于我</h2></div>
+      <div class="about-label"><p class="eyebrow" lang="en">ABOUT</p><h2 id="about-title">关于我</h2>
+</div>
       <div class="about-content">
         <p class="about-statement">用影像保存短暂的<br>光线与空间。</p>
         <div class="about-copy">
           <p>我是邢增俊，一名摄影爱好者。我的拍摄关注自然风景、旅途见闻、城市空间、航空与航天。</p>
           <p>这里收录了我近年来创作的部分摄影作品，并将随着新的拍摄计划持续更新。</p>
         </div>
-        <a class="text-link" href="about.html">了解摄影师 <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="about.html">了解摄影师 <span aria-hidden="true">↗</span>
+</a>
       </div>
     </section>
   </main>
   <footer class="site-footer shell">
-    <div><p>© 2026 邢增俊 · HERAPPER</p><p class="copyright-note">本站摄影作品版权归摄影师本人所有</p></div>
-    <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+    <div><p>© 2026 邢增俊 · HERAPPER</p><p class="copyright-note">本站摄影作品版权归摄影师本人所有</p>
+</div>
+    <a class="back-top" href="#top">回到顶部 <span aria-hidden="true">↑</span>
+</a>
   </footer>
-<script>
-// 拍摄足迹地图
-(function() {
-  const chartDom = document.getElementById('china-map');
-  if (!chartDom || typeof echarts === 'undefined') return;
-
-  const chart = echarts.init(chartDom, 'dark');
-
-  // 拍摄地点数据：[经度, 纬度, 地点名, 照片数, 链接]
-  const points = [
-    [110.35, 20.02, '海口 · 美兰', 52, 'aerospace.html#airport-HAK'],
-    [109.51, 18.25, '三亚 · 凤凰', 64, 'aerospace.html#airport-SYX'],
-    [110.8, 19.6, '文昌 · 航天发射场', 1, 'aerospace.html#airport-Wenchang-Space-Launch-Site'],
-    [117.12, 36.65, '济南 · 遥墙', 37, 'aerospace.html#airport-TNA'],
-    [116.40, 39.90, '北京', 17, 'aerospace.html#airport-PEK'],
-    [121.47, 31.23, '上海 · 浦东', 29, 'aerospace.html#airport-PVG'],
-    [113.27, 23.13, '广州 · 白云', 5, 'aerospace.html#airport-CAN'],
-    [114.06, 22.55, '深圳 · 宝安', 1, 'aerospace.html#airport-SZX'],
-    [104.07, 30.57, '成都 · 双流', 7, 'aerospace.html#airport-CTU'],
-    [125.32, 43.82, '长春 · 龙嘉', 1, 'aerospace.html#airport-CGQ'],
-    [108.94, 34.34, '西安 · 咸阳', 3, 'aerospace.html#airport-XIY'],
-    [113.62, 34.75, '郑州 · 新郑', 10, 'aerospace.html#airport-CGO'],
-    [91.14, 29.65, '拉萨 · 贡嘎', 11, 'aerospace.html#airport-LXA'],
-    [114.17, 22.32, '香港', 24, 'aerospace.html#airport-HKG']
-  ];
-
-  fetch('china.json')
-    .then(res => res.json())
-    .then(geoJson => {
-      echarts.registerMap('china', geoJson);
-
-      const option = {
-        backgroundColor: 'transparent',
-        tooltip: {
-          trigger: 'item',
-          backgroundColor: '#1a1b1c',
-          borderColor: '#ffffff20',
-          textStyle: { color: '#f2f1ed' },
-          formatter: function(p) {
-            if (p.seriesType === 'effectScatter') {
-              return `<b>${p.data[2]}</b><br/>${p.data[3]} 张作品`;
-            }
-            return p.name;
-          }
-        },
-        geo: {
-          map: 'china',
-          roam: true,
-          zoom: 1.15,
-          label: { show: false },
-          itemStyle: {
-            areaColor: '#161718',
-            borderColor: '#ffffff15',
-            borderWidth: 1
-          },
-          emphasis: {
-            itemStyle: { areaColor: '#1e1f20' },
-            label: { show: false }
-          }
-        },
-        series: [{
-          name: '拍摄地点',
-          type: 'effectScatter',
-          coordinateSystem: 'geo',
-          data: points.map(p => ({
-            value: [p[0], p[1], p[2], p[3]],
-            link: p[4]
-          })),
-          symbolSize: function(val) {
-            return Math.max(8, Math.min(20, 6 + val[3] / 5));
-          },
-          rippleEffect: { brushType: 'stroke', scale: 2.5 },
-          itemStyle: {
-            color: '#c9a96e',
-            shadowBlur: 10,
-            shadowColor: '#c9a96e'
-          },
-          label: {
-            show: true,
-            position: 'right',
-            formatter: function(p) { return p.data.value[2]; },
-            color: '#eee',
-            fontSize: 11
-          },
-          emphasis: {
-            itemStyle: { color: '#e6c98a' }
-          }
-        }]
-      };
-
-      chart.setOption(option);
-
-      // 点击跳转
-      chart.on('click', function(params) {
-        if (params.data && params.data.link) {
-          window.location.href = params.data.link;
-        }
-      });
-    });
-
-  // 自适应窗口大小
-  window.addEventListener('resize', () => chart.resize());
-})();
-</script>
 </body>
 </html>
-
-

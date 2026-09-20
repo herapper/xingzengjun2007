@@ -1,0 +1,11 @@
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.webp -text
+*.jpg -text
+assets/vendor/* -text
+/assets/images/** linguist-generated=true
+/*.html linguist-generated=true

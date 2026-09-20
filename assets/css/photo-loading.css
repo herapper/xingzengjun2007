@@ -1,0 +1,10 @@
+/* Fail open: without JavaScript, downloaded photographs remain visible. */
+.gallery-item img, .series-card-image img { opacity:1; filter:none; transform:none; }
+.photo-frame { position:relative; isolation:isolate; overflow:hidden; background:#202326; }
+.photo-frame::before { content:""; position:absolute; inset:-16px; z-index:-1; background-image:var(--photo-preview,linear-gradient(125deg,#555b62,#333c44 45%,#6b6256)); background-size:cover; background-position:center; filter:blur(14px); transform:scale(1.04); }
+.photo-frame img { transition:opacity .55s ease,filter .55s ease; }
+.photo-frame.photo-pending img, .photo-frame.photo-failed img { opacity:0; }
+.photo-frame img.is-loaded { opacity:1; filter:none; }
+.photo-frame:not(.photo-pending):not(.photo-failed)::before { opacity:0; transition:opacity .65s ease; }
+.photo-retry { position:absolute; inset:auto 12px 12px; z-index:2; padding:12px; color:#fff; background:rgba(15,17,19,.7); backdrop-filter:blur(12px); border:1px solid #ffffff40; border-radius:4px; cursor:pointer; font:inherit; font-size:13px; }
+@media(prefers-reduced-motion:reduce) { .photo-frame img,.photo-frame::before { transition:none!important; } }
