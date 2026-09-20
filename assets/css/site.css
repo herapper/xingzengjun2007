@@ -65,21 +65,16 @@ h1, h2, h3, p { margin: 0; }
 .series-card-top { display: flex; justify-content: space-between; gap: 1rem; min-height: 2rem; color: var(--muted); font-size: .75rem; letter-spacing: .1em; }
 .series-number { color: var(--gold); }
 .series-card-image { overflow: hidden; aspect-ratio: 3 / 2; background: var(--surface); }
-.series-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.1,1); }
+.series-card-image img { width: 100%; height: 100%; object-fit: cover; }
 .series-card:nth-child(4n + 2) .series-card-image, .series-card:nth-child(4n + 3) .series-card-image { aspect-ratio: 4 / 5; }
 .series-card:nth-child(4n + 2) img { object-position: center 40%; }
 .series-card-content { position: static; min-width: 0; margin-top: 1.25rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
 .series-english { font-size: .75rem; letter-spacing: .12em; color: var(--muted); line-height: 1.7; text-transform: uppercase; overflow-wrap: anywhere; }
 .series-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; margin-top: .5rem; }
 .series-title-row h3 { min-width: 0; font-family: var(--serif); font-size: clamp(1.875rem, 3.1vw, 3rem); font-weight: 500; letter-spacing: .02em; line-height: 1.4; }
-.series-arrow { flex-shrink: 0; font-size: 1.5rem; color: var(--gold); transition: transform .25s; }
+.series-arrow { flex-shrink: 0; font-size: 1.5rem; color: var(--gold); }
 .series-description { margin-top: .65rem; color: var(--muted); font-size: 1rem; line-height: 1.85; }
 .series-count { display: block; margin-top: 1rem; color: #cac8c3; font-size: .75rem; letter-spacing: .07em; }
-@media (hover: hover) and (pointer: fine) {
-  .series-card:hover .series-card-image img { transform: scale(1.025); }
-  .series-card:hover .series-arrow { transform: translate(3px, -3px); }
-  .series-card:hover .series-card-content { border-color: var(--gold); }
-}
 .series-card:focus-visible .series-card-content { border-color: var(--gold); }
 
 /* 关于摄影师 */
@@ -135,6 +130,26 @@ a.contact-link:hover { color: var(--gold); }
 .photo-link img { width: 100%; height: auto; }
 .gallery-enhanced .photo-link { cursor: zoom-in; }
 .gallery figcaption { margin-top: .75rem; font-size: .875rem; color: var(--muted); line-height: 1.8; }
+
+/* Shared card feedback: keep photos still; fade the surface and shadow both ways.
+   Animate the card, independently of the photo-loading opacity transition. */
+.series-card, .gallery-item {
+  background-color: var(--photo-card-background, transparent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
+  transition: background-color .35s ease, box-shadow .35s ease;
+}
+.series-card-content { transition: border-color .35s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .series-card:hover, .gallery-item:hover {
+    --photo-card-background: var(--photo-card-hover, #171a1e);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .38);
+  }
+  .series-card:hover .series-card-content { border-color: var(--gold); }
+}
+.series-card:focus-visible, .gallery-item:has(.photo-link:focus-visible) {
+  --photo-card-background: var(--photo-card-hover, #171a1e);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .38);
+}
 .series-navigation { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-block: 2.5rem 4rem; }
 .all-series-link { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .875rem; color: var(--muted); }
 .next-series-link { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 2rem; margin-left: auto; }
