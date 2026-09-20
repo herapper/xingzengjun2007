@@ -16,12 +16,13 @@
 }
 
 .series-aerospace .gallery .gallery-item {
+  --photo-card-hover: #303338;
   min-width: 0;
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 5px;
-  background: #202226;
+  background: var(--photo-card-background, #202226);
 }
 
 /* 统一照片展示区域，完整显示照片 */
