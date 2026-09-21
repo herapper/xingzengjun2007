@@ -119,6 +119,25 @@ test('a failed responsive gallery image can be retried', async () => {
   await ctx.close();
 });
 
+test('non-aviation cards zoom without a grey surface while aviation keeps its card feedback', async () => {
+  const ctx = await context();
+  const page = await ctx.newPage();
+  await page.goto(base, { waitUntil: 'networkidle' });
+  const hainan = page.locator('.series-card[href="hainan.html"]');
+  await hainan.hover();
+  assert.equal(await hainan.evaluate(el => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
+  assert.notEqual(await hainan.locator('.series-card-image img').evaluate(el => getComputedStyle(el).transform), 'none');
+  const aerospace = page.locator('.series-card[href="aerospace.html"]');
+  await aerospace.hover();
+  assert.notEqual(await aerospace.evaluate(el => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
+  await page.goto(`${base}/nature.html`, { waitUntil: 'networkidle' });
+  const natureItem = page.locator('.gallery-item').first();
+  await natureItem.hover();
+  assert.equal(await natureItem.evaluate(el => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
+  assert.notEqual(await natureItem.locator('img').evaluate(el => getComputedStyle(el).transform), 'none');
+  await ctx.close();
+});
+
 test('manual slideshow loads responsive images and skips a failed first slide', async () => {
   const ctx = await context();
   const page = await ctx.newPage();
