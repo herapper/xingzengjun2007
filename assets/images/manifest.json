@@ -8689,6 +8689,166 @@
       }
     ]
   },
+  "images/nature/IMG_5574.jpg": {
+    "sha256": "0d0e40ada7eb3f20860f14736162372899dd19af32fffa1a83d89466f624f502",
+    "quality": 82,
+    "requestedWidths": [
+      480,
+      1280,
+      1920
+    ],
+    "width": 2000,
+    "height": 1333,
+    "bytes": 2001363,
+    "variants": [
+      {
+        "src": "assets/images/images/nature/IMG_5574/480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 35124
+      },
+      {
+        "src": "assets/images/images/nature/IMG_5574/1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 146486
+      },
+      {
+        "src": "assets/images/images/nature/IMG_5574/1920.webp",
+        "width": 1920,
+        "height": 1280,
+        "bytes": 246372
+      }
+    ]
+  },
+  "images/nature/IMG_6166.jpg": {
+    "sha256": "b1a426155239d9245e21cfd2f90657006856422f7fa78e506a4118a3ec2094ea",
+    "quality": 82,
+    "requestedWidths": [
+      480,
+      1280,
+      1920
+    ],
+    "width": 2000,
+    "height": 1125,
+    "bytes": 2521582,
+    "variants": [
+      {
+        "src": "assets/images/images/nature/IMG_6166/480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 34788
+      },
+      {
+        "src": "assets/images/images/nature/IMG_6166/1280.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 248690
+      },
+      {
+        "src": "assets/images/images/nature/IMG_6166/1920.webp",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 549956
+      }
+    ]
+  },
+  "images/nature/IMG_6167.jpg": {
+    "sha256": "2a5a15fa8dd6e167c8a5b4e43e0016c5c13c0bbe06196bd186ca066432a1d1d5",
+    "quality": 82,
+    "requestedWidths": [
+      480,
+      1280,
+      1920
+    ],
+    "width": 2000,
+    "height": 1333,
+    "bytes": 763730,
+    "variants": [
+      {
+        "src": "assets/images/images/nature/IMG_6167/480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 15870
+      },
+      {
+        "src": "assets/images/images/nature/IMG_6167/1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 43444
+      },
+      {
+        "src": "assets/images/images/nature/IMG_6167/1920.webp",
+        "width": 1920,
+        "height": 1280,
+        "bytes": 66568
+      }
+    ]
+  },
+  "images/nature/photo-03.jpg": {
+    "sha256": "32718c6f7037fd5b6af8844df1541947993ae964e23601b787abb24122b70c5e",
+    "quality": 82,
+    "requestedWidths": [
+      480,
+      1280,
+      1920
+    ],
+    "width": 2000,
+    "height": 1333,
+    "bytes": 744911,
+    "variants": [
+      {
+        "src": "assets/images/images/nature/photo-03/480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 13640
+      },
+      {
+        "src": "assets/images/images/nature/photo-03/1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 41484
+      },
+      {
+        "src": "assets/images/images/nature/photo-03/1920.webp",
+        "width": 1920,
+        "height": 1280,
+        "bytes": 66440
+      }
+    ]
+  },
+  "images/nature/photo-05.jpg": {
+    "sha256": "1b6ef4d71b155e14f0999eb5e7fec5f6a44c89553ce28008cbdeb6278a8b12cd",
+    "quality": 82,
+    "requestedWidths": [
+      480,
+      1280,
+      1920
+    ],
+    "width": 2000,
+    "height": 3006,
+    "bytes": 4440416,
+    "variants": [
+      {
+        "src": "assets/images/images/nature/photo-05/480.webp",
+        "width": 480,
+        "height": 721,
+        "bytes": 43108
+      },
+      {
+        "src": "assets/images/images/nature/photo-05/1280.webp",
+        "width": 1280,
+        "height": 1924,
+        "bytes": 265210
+      },
+      {
+        "src": "assets/images/images/nature/photo-05/1920.webp",
+        "width": 1920,
+        "height": 2886,
+        "bytes": 505432
+      }
+    ]
+  },
   "images/photo-01.jpg": {
     "sha256": "376d932fb4d03d3461baa25f6da62d7707507c9ac7c10d66237db86b96a53fb0",
     "quality": 82,

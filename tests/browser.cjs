@@ -154,7 +154,7 @@ test('train journey supports wheel, drag, progress, keyboard and click without l
   assert.equal(await page.locator('.photo-viewer.is-open').count(), 1);
   await page.keyboard.press('Escape');
   await page.goto(`${base}/nature.html`);
-  assert.equal(await page.locator('.gallery .photo-link').count(), 2);
+  assert.equal(await page.locator('.gallery .photo-link').count(), 7);
   await ctx.close();
 });
 
@@ -175,4 +175,3 @@ test('train journey permits native touch scrolling and works without scripts', a
  assert.equal(await p.locator('.journey-track').evaluate(el=>getComputedStyle(el).overflowX),'auto');
  await plain.close();
 });
-
