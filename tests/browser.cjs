@@ -73,17 +73,17 @@ test('airport deep links, switching, history and scoped viewer preserve original
 
 test('all pages load on mobile without broken images, script errors or horizontal overflow', async () => {
   const ctx = await context({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
-  for (const name of ['index', 'hainan', 'xizang', 'aerospace', 'urban', 'video', 'about']) {
+  for (const name of ['index', 'hainan', 'xizang', 'nature', 'aerospace', 'urban', 'video', 'about']) {
     const page = await ctx.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(`${base}/${name}.html`, { waitUntil: 'networkidle' });
     assert.deepEqual(errors, [], name);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), name);
-    const image = page.locator('.hero-media, .profile-portrait img').first();
+    const image = page.locator('.hero-media, .profile-portrait img, .journey-track img').first();
     await image.scrollIntoViewIfNeeded();
     await page.waitForFunction(() => {
-      const image = document.querySelector('.hero-media, .profile-portrait img');
+      const image = document.querySelector('.hero-media, .profile-portrait img, .journey-track img');
       return image.complete && image.naturalWidth > 0;
     });
     assert.equal(await page.locator('.photo-failed').count(), 0, name);
@@ -131,3 +131,48 @@ test('manual slideshow loads responsive images and skips a failed first slide', 
   await page.waitForFunction(() => document.querySelector('.slideshow-count').textContent === '05 / 05');
   await ctx.close();
 });
+
+test('train journey supports wheel, drag, progress, keyboard and click without losing photos', async () => {
+  const ctx = await context(); const page = await ctx.newPage();
+  await page.goto(`${base}/xizang.html`);
+  const track = page.locator('.journey-track');
+  assert.equal(await track.locator('.photo-link').count(), 23);
+  await track.scrollIntoViewIfNeeded(); await track.hover();
+  await page.mouse.wheel(0, 420); await page.waitForTimeout(150);
+  assert(await track.evaluate(el => el.scrollLeft) > 300);
+  await track.evaluate(el => el.scrollLeft = 0);
+  const box = await track.boundingBox();
+  await page.mouse.move(box.x + 240, box.y + 150); await page.mouse.down();
+  await page.mouse.move(box.x + 70, box.y + 150, { steps: 10 }); await page.mouse.up();
+  assert(await track.evaluate(el => el.scrollLeft) > 100);
+  assert.equal(await page.locator('.photo-viewer.is-open').count(), 0);
+  await track.focus(); await page.keyboard.press('End');
+  assert(await track.evaluate(el => Math.abs(el.scrollWidth - el.clientWidth - el.scrollLeft) < 2));
+  await page.waitForTimeout(100); assert.equal(await page.locator('.journey-position').textContent(), '23 / 23');
+  await page.keyboard.press('Home');
+  await track.locator('.photo-link').first().click();
+  assert.equal(await page.locator('.photo-viewer.is-open').count(), 1);
+  await page.keyboard.press('Escape');
+  await page.goto(`${base}/nature.html`);
+  assert.equal(await page.locator('.gallery .photo-link').count(), 2);
+  await ctx.close();
+});
+
+test('train journey permits native touch scrolling and works without scripts', async () => {
+ const ctx = await context({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+ const page=await ctx.newPage(); await page.goto(`${base}/xizang.html`);
+ const track=page.locator('.journey-track'); await track.scrollIntoViewIfNeeded();
+ const box=await track.boundingBox(); const y=Math.max(130,box.y+100);
+ const cdp=await ctx.newCDPSession(page);
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:320,y}]});
+ for(let x=300;x>=80;x-=20) await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y}]});
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ await page.waitForTimeout(250); assert(await track.evaluate(el=>el.scrollLeft)>100);
+ assert.equal(await page.locator('.photo-viewer.is-open').count(),0);
+ await ctx.close();
+ const plain=await context({javaScriptEnabled:false}); const p=await plain.newPage(); await p.goto(`${base}/xizang.html`);
+ assert.equal(await p.locator('.journey-track .photo-link').count(),23);
+ assert.equal(await p.locator('.journey-track').evaluate(el=>getComputedStyle(el).overflowX),'auto');
+ await plain.close();
+});
+
